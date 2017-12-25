@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_STU_PAPER_INFOS
+type=command
+dependencies=SQOOP_ODS_COR_START
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_STU_PAPER_INFOS.sh"
+user.to.proxy=hdfs

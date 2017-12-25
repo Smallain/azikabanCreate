@@ -1,0 +1,5 @@
+#SQOOP_ODS_PTS_TB_STUDENT_POINTS
+type=command
+dependencies=SQOOP_ODS_PTS_TB_SERVICE_ORDER
+command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_STUDENT_POINTS.sh"
+user.to.proxy=hdfs

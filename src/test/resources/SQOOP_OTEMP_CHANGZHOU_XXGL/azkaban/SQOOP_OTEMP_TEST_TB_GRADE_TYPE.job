@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_TB_GRADE_TYPE
+type=command
+dependencies=SQOOP_OTEMP_TEST_TB_STUDENT
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_TB_GRADE_TYPE.sh"
+user.to.proxy=hdfs

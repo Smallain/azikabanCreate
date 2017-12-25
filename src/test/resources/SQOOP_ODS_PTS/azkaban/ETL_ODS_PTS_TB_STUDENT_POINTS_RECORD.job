@@ -1,0 +1,5 @@
+#ETL_ODS_PTS_TB_STUDENT_POINTS_RECORD
+type=command
+dependencies=SQOOP_S_PTS_TB_STUDENT_POINTS_RECORD_0791
+command=hive -f ../etl/ETL_ODS_PTS_TB_STUDENT_POINTS_RECORD.hql
+user.to.proxy=hdfs

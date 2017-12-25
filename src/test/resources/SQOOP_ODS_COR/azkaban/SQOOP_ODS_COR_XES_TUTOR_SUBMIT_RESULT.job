@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_TUTOR_SUBMIT_RESULT
+type=command
+dependencies=SQOOP_ODS_COR_XES_STU_PAPER_INFOS
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_TUTOR_SUBMIT_RESULT.sh"
+user.to.proxy=hdfs

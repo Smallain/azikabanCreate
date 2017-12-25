@@ -1,0 +1,12 @@
+url_source=jdbc:mysql://192.168.1.107:3306/changzhou_xxgl
+port_source=3306
+user_source=m2k
+password_source=mysql2KAFKA
+database_source=changzhou_xxgl
+table_source=tb_student,tb_grade,tb_grade_type,tb_regist,tb_class,tb_curriculum,tb_finance
+
+database_target=otemp
+table_target=otemp_test_
+
+database_target_cream=odata
+table_target_cream=s_py_rxcs_

@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_STU_GAME_ANSWER
+type=command
+dependencies=SQOOP_ODS_IPS_TB_LEVEL_TYPE
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_STU_GAME_ANSWER.sh"
+user.to.proxy=hdfs

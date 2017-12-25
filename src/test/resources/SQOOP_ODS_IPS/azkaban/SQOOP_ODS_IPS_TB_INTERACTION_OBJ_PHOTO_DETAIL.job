@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_INTERACTION_OBJ_PHOTO_DETAIL
+type=command
+dependencies=SQOOP_ODS_IPS_TB_INTERACTION_ANSWER_TEMP
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_INTERACTION_OBJ_PHOTO_DETAIL.sh"
+user.to.proxy=hdfs

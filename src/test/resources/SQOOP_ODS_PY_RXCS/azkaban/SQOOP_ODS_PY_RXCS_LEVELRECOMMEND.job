@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_LEVELRECOMMEND
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_APPTESTRECORD
+command=/bin/bash ../sqoop/SQOOP_ODS_PY_RXCS_LEVELRECOMMEND.sh"
+user.to.proxy=hdfs

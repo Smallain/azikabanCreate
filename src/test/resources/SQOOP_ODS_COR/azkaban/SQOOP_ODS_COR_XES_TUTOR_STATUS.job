@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_TUTOR_STATUS
+type=command
+dependencies=SQOOP_ODS_COR_START
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_TUTOR_STATUS.sh"
+user.to.proxy=hdfs

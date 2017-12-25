@@ -1,0 +1,5 @@
+#SQOOP_S_PTS_TB_CARD_DETAIL
+type=command
+dependencies=SQOOP_ODS_PTS_START
+command=/bin/bash ../incream/SQOOP_S_PTS_TB_CARD_DETAIL.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_TUTOR_TASK_RELA
+type=command
+dependencies=SQOOP_ODS_COR_XES_TUTOR_CLASS
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_TUTOR_TASK_RELA.sh"
+user.to.proxy=hdfs

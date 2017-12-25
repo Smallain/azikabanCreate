@@ -1,0 +1,12 @@
+url_source=jdbc:mysql://192.168.23.24:3414/py_rxcs
+port_source=3414
+user_source=m2k
+password_source=mysql2KAFKA
+database_source=py_rxcs
+table_source=address,admins,apptest,apptestrecord,categorytrees,levelrecommend,paperparams,papertocategory,recommend,studenttests,teacherrecommend,testcontents,testpapers
+
+database_target=odata
+table_target=ods_py_rxcs_
+
+database_target_cream=odata
+table_target_cream=s_py_rxcs_

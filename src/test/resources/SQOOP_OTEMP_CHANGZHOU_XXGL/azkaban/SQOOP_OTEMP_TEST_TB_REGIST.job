@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_TB_REGIST
+type=command
+dependencies=SQOOP_OTEMP_TEST_TB_GRADE
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_TB_REGIST.sh"
+user.to.proxy=hdfs

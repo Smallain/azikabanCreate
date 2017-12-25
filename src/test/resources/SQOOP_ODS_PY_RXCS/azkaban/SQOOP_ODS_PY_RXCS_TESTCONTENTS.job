@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_TESTCONTENTS
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_STUDENTTESTS
+command=/bin/bash ../sqoop/SQOOP_ODS_PY_RXCS_TESTCONTENTS.sh"
+user.to.proxy=hdfs

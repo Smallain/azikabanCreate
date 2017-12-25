@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_ADDRESS
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_START
+command=/bin/bash ../sqoop/SQOOP_ODS_PY_RXCS_ADDRESS.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_TUTOR_TASKS_DELETE
+type=command
+dependencies=SQOOP_ODS_COR_XES_CORRECT_RESULT_STORE_DELETE
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_TUTOR_TASKS_DELETE.sh"
+user.to.proxy=hdfs

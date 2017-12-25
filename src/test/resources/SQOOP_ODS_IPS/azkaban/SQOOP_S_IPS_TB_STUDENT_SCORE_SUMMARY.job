@@ -1,0 +1,5 @@
+#SQOOP_S_IPS_TB_STUDENT_SCORE_SUMMARY
+type=command
+dependencies=ETL_ODS_IPS_TB_STUDENT_SCORE_DETAIL
+command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_STUDENT_SCORE_SUMMARY.sh"
+user.to.proxy=hdfs

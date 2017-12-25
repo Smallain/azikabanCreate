@@ -1,0 +1,5 @@
+#SQOOP_S_IPS_TB_STUDENT_COURSE_LEVEL_STATUS
+type=command
+dependencies=ETL_ODS_IPS_TB_RECOMMEND_ANSWER
+command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_STUDENT_COURSE_LEVEL_STATUS.sh"
+user.to.proxy=hdfs

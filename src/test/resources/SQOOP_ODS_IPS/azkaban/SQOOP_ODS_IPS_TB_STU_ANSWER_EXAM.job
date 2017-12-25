@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_STU_ANSWER_EXAM
+type=command
+dependencies=SQOOP_ODS_IPS_TB_COURSE_TASK_PAPER
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_STU_ANSWER_EXAM.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,3 @@
+#SQOOP_ODS_IPS_TB_STU_ANSWER_EXAM.job
+dependencies=SQOOP_ODS_IPS_TB_COURSE_TASK_PAPER
+command=/bin/bash ../sqoop/haohaohao无

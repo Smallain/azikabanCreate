@@ -1,0 +1,5 @@
+#SQOOP_ODS_PTS_TB_ACTIVITY_INFO
+type=command
+dependencies=SQOOP_ODS_PTS_TB_ACTIVITY_DETAIL
+command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_ACTIVITY_INFO.sh"
+user.to.proxy=hdfs

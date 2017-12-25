@@ -1,0 +1,5 @@
+#SQOOP_ODS_TK_TK_ANSWER_OPTION_WL
+type=command
+dependencies=SQOOP_ODS_TK_TK_ANSWER_OPTION_SW
+command=/bin/bash ../sqoop/SQOOP_ODS_TK_TK_ANSWER_OPTION_WL.sh"
+user.to.proxy=hdfs

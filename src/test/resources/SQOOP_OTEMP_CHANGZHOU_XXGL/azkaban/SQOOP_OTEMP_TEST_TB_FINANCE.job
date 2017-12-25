@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_TB_FINANCE
+type=command
+dependencies=SQOOP_OTEMP_TEST_TB_CLASS,SQOOP_OTEMP_TEST_TB_CURRICULUM
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_TB_FINANCE.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_END
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_TESTPAPERS
+command=echo "sync data SQOOP_ODS_PY_RXCS_END end"
+user.to.proxy=hdfs

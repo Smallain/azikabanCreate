@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_ICS_TEST_LOG
+type=command
+dependencies=SQOOP_ODS_IPS_TB_EVALUATE_STAR_TAGS
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_ICS_TEST_LOG.sh"
+user.to.proxy=hdfs

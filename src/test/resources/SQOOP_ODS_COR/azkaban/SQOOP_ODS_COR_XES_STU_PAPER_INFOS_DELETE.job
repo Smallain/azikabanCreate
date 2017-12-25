@@ -1,0 +1,5 @@
+#SQOOP_ODS_COR_XES_STU_PAPER_INFOS_DELETE
+type=command
+dependencies=SQOOP_ODS_COR_XES_USER
+command=/bin/bash ../sqoop/SQOOP_ODS_COR_XES_STU_PAPER_INFOS_DELETE.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,4 @@
+#SQOOP_ODS_PY_RXCS_START
+type=command
+command=echo "sync data SQOOP_ODS_PY_RXCS_START start"
+user.to.proxy=hdfs

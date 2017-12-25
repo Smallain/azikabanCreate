@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_APPTESTRECORD
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_ADMINS
+command=/bin/bash ../sqoop/SQOOP_ODS_PY_RXCS_APPTESTRECORD.sh"
+user.to.proxy=hdfs

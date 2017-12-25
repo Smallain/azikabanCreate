@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_LIVE_LECTURE_USER_0
+type=command
+dependencies=SQOOP_OTEMP_TEST_WECHAT_ENROLL,SQOOP_OTEMP_TEST_LIVE_USERS
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_LIVE_LECTURE_USER_0.sh"
+user.to.proxy=hdfs

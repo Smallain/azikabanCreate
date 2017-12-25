@@ -1,0 +1,12 @@
+url_source=jdbc:mysql://192.168.181.245:3306/wechat_wechat
+port_source=3306
+user_source=wechat_read
+password_source=Tlasa*@121op
+database_source=wechat_wechat
+table_source=wechat_account,wechat_school,wechat_wxer,wechat_pyer,wechat_user,wechat_app,wechat_enroll,live_lecture_user_0,live_lecture_user_1,live_lecture_user_2,live_lecture_user_3,live_users
+
+database_target=otemp
+table_target=otemp_test_
+
+database_target_cream=odata
+table_target_cream=s_py_rxcs_

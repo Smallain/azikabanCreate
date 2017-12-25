@@ -1,0 +1,5 @@
+#SQOOP_S_IPS_TB_STU_SUBJ_ANSWER_DETAIL
+type=command
+dependencies=ETL_ODS_IPS_TB_STUDENT_TASK_ANSWER
+command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_STU_SUBJ_ANSWER_DETAIL.sh"
+user.to.proxy=hdfs

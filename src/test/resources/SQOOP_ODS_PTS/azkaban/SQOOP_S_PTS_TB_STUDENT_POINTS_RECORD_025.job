@@ -1,0 +1,5 @@
+#SQOOP_S_PTS_TB_STUDENT_POINTS_RECORD_025
+type=command
+dependencies=SQOOP_S_PTS_TB_STUDENT_POINTS_RECORD_021
+command=/bin/bash ../incream/SQOOP_S_PTS_TB_STUDENT_POINTS_RECORD_025.sh"
+user.to.proxy=hdfs

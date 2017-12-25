@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_TB_CURRICULUM
+type=command
+dependencies=SQOOP_OTEMP_TEST_TB_REGIST
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_TB_CURRICULUM.sh"
+user.to.proxy=hdfs

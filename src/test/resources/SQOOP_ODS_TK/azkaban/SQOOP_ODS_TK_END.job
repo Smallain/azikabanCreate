@@ -1,0 +1,5 @@
+#SQOOP_ODS_TK_END
+type=command
+dependencies=SQOOP_ODS_TK_TK_QUESTION_YY,SQOOP_ODS_TK_TK_QUESTION_ZZ
+command=echo "sync data SQOOP_ODS_TK_END end"
+user.to.proxy=hdfs

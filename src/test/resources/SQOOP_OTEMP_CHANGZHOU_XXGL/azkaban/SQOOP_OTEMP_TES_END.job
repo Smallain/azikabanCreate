@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TES_END
+type=command
+dependencies=SQOOP_OTEMP_TEST_TB_FINANCE
+command=echo "sync data SQOOP_OTEMP_TES_END end"
+user.to.proxy=hdfs

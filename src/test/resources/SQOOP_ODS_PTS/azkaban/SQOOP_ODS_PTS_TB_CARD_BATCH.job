@@ -1,0 +1,5 @@
+#SQOOP_ODS_PTS_TB_CARD_BATCH
+type=command
+dependencies=SQOOP_ODS_PTS_TB_ACTIVITY_INFO
+command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_CARD_BATCH.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_ODS_PTS_TB_GOODS_INFO
+type=command
+dependencies=SQOOP_ODS_PTS_TB_GOODS_FILE
+command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_GOODS_INFO.sh"
+user.to.proxy=hdfs

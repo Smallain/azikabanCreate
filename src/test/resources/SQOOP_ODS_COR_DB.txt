@@ -1,0 +1,12 @@
+url_source=jdbc:mysql://rm-2ze86x0cxybkm4b4irw.mysql.rds.aliyuncs.com:3306/ipstutor
+port_source=3306
+user_source=turing_rep
+password_source=drw_5lv_do
+database_source=ipstutor
+table_source=xes_stu_paper_infos,xes_tutor_class,xes_tutor_status,xes_tutor_submit_result,xes_tutor_task_rela,xes_tutor_tasks,xes_user,xes_correct_result_store,xes_correct_result_store_delete,xes_stu_paper_infos_delete,xes_tutor_submit_result_delete,xes_tutor_tasks_delete
+
+database_target=odata
+table_target=ods_cor_
+
+database_target_cream=sdata
+table_target_cream=ods_cor_

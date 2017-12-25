@@ -1,0 +1,5 @@
+#ETL_ODS_IPS_TB_STUDENT_SCORE_DETAIL
+type=command
+dependencies=SQOOP_S_IPS_TB_STUDENT_SCORE_DETAIL
+command=/bin/bash ../etl/ETL_ODS_IPS_TB_STUDENT_SCORE_DETAIL.hql
+user.to.proxy=hdfs

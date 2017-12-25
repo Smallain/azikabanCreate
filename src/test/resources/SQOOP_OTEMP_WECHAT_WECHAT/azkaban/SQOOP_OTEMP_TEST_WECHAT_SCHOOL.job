@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_WECHAT_SCHOOL
+type=command
+dependencies=SQOOP_OTEMP_TEST_START
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_WECHAT_SCHOOL.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_OTEMP_TEST_WECHAT_WXER
+type=command
+dependencies=SQOOP_OTEMP_TEST_WECHAT_ACCOUNT
+command=/bin/bash ../sqoop/SQOOP_OTEMP_TEST_WECHAT_WXER.sh"
+user.to.proxy=hdfs

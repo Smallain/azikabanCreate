@@ -1,0 +1,5 @@
+#ETL_ODS_PTS_TB_CARD_DETAIL
+type=command
+dependencies=SQOOP_S_PTS_TB_CARD_DETAIL
+command=hive -f ../etl/ETL_ODS_PTS_TB_CARD_DETAIL.hql
+user.to.proxy=hdfs

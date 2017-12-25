@@ -1,0 +1,5 @@
+#SQOOP_ODS_PY_RXCS_RECOMMEND
+type=command
+dependencies=SQOOP_ODS_PY_RXCS_PAPERPARAMS
+command=/bin/bash ../sqoop/SQOOP_ODS_PY_RXCS_RECOMMEND.sh"
+user.to.proxy=hdfs

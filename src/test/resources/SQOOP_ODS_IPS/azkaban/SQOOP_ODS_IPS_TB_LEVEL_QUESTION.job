@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_LEVEL_QUESTION
+type=command
+dependencies=SQOOP_ODS_IPS_TB_KNOWLEGE
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_LEVEL_QUESTION.sh"
+user.to.proxy=hdfs

@@ -1,0 +1,5 @@
+#SQOOP_ODS_PTS_TB_POINTS_RULE
+type=command
+dependencies=SQOOP_ODS_PTS_TB_GOODS_ORDER
+command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_POINTS_RULE.sh"
+user.to.proxy=hdfs

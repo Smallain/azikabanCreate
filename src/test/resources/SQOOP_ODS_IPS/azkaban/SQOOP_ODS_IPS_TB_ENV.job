@@ -1,0 +1,5 @@
+#SQOOP_ODS_IPS_TB_ENV
+type=command
+dependencies=SQOOP_ODS_IPS_TB_COURSE_TASK_QUESTION
+command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_ENV.sh"
+user.to.proxy=hdfs

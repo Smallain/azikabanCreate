@@ -1,0 +1,5 @@
+#SQOOP_ODS_TK_QUESTION_KNOWLEDGE_HIERARCHY
+type=command
+dependencies=SQOOP_ODS_TK_START
+command=/bin/bash ../sqoop/SQOOP_ODS_TK_QUESTION_KNOWLEDGE_HIERARCHY.sh"
+user.to.proxy=hdfs
