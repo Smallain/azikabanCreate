@@ -103,7 +103,7 @@ object ShellFile extends WriteToFile {
 		
 		//val pattens = "tb_student_points_record_[0-9]"
 		
-		val tab_re = "tb_student_points_record_[0-9]"
+		val tab_re = "plan_stu_score_[0-9]"
 		val tab_red = "tb_student_points_record_detail_[0-9]"
 		val pattern_re = new Regex(tab_re)
 		val pattern_red = new Regex(tab_red)
@@ -195,7 +195,7 @@ object ShellFile extends WriteToFile {
 		
 		//val pattens = "tb_student_points_record_[0-9]"
 		
-		val tab_re = "tb_student_points_record_[0-9]"
+		val tab_re = "plan_stu_score_[0-9]"
 		val tab_red = "tb_student_points_record_detail_[0-9]"
 		val pattern_re = new Regex(tab_re)
 		val pattern_red = new Regex(tab_red)
@@ -212,6 +212,14 @@ object ShellFile extends WriteToFile {
 		val match_red = (pattern_red findAllIn fntc).mkString.dropRight(2)
 		val match_city = (pattern_city findAllIn fntc).mkString
 		
+		var partition_para = ""
+		if (match_city.isEmpty) {
+			partition_para = ""
+		} else {
+			partition_para = s"--hive-partition-key city_id --hive-partition-value \'$match_city\' "
+		}
+		
+		
 		if (match_re.isEmpty) {
 			if (match_red.isEmpty) {
 				val command_lines: String =
@@ -219,11 +227,11 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + table_src.toUpperCase}
 						 |#import ${table_target + table_src}
-						 |s_date=$$(date -d \'-7 days\' +%Y-%m-%d)
+						 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 						 |if [ $$# -eq 1 ]; then
 						 |	s_date=$$1
 						 |fi
-						 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + table_src} --target-dir ${table_target + table_src} --hive-overwrite --query \"select * from ${table_src} where substr(spr_create_date,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" -m 1
+						 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + table_src} --target-dir ${table_target + table_src} --hive-overwrite --query \"select * from ${table_src} where substr(create_time,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" --hive-drop-import-delims -m 1
 						 |""".stripMargin
 				val path_cream = path.split("/").dropRight(1).mkString("/") + "/incream"
 				withWriter(path_cream)(fileName + ".sh")(command_lines)
@@ -238,12 +246,12 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + match_red.toUpperCase}
 						 |#import ${table_target + match_red}
-						 |s_date=$$(date -d \'-7 days\' +%Y-%m-%d)
+						 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 						 |if [ $$# -eq 1 ]; then
 						 |	s_date=$$1
 						 |fi
 						 |
-						 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + match_red} --target-dir ${table_target + match_red} $overwrite_para --query \"select * from $table_src where substr(spr_create_date,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" -m 1
+						 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + match_red} --target-dir ${table_target + match_red} $overwrite_para --query \"select * from $table_src where substr(spr_create_date,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" --hive-drop-import-delims -m 1
 						 |""".stripMargin
 				val path_cream = path.split("/").dropRight(1).mkString("/") + "/incream"
 				withWriter(path_cream)(fileName + ".sh")(command_lines)
@@ -254,15 +262,25 @@ object ShellFile extends WriteToFile {
 				overwrite_para = "--hive-overwrite"
 			}
 			val command_lines: String =
+			//				s"""#!/bin/bash
+			//					 |export JAVA_HOME="/usr/local/jdk1.7.0"
+			//					 |#${table_target.toUpperCase + match_re.toUpperCase}
+			//					 |#import ${table_target + match_re}
+			//					 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
+			//					 |if [ $$# -eq 1 ]; then
+			//					 |	s_date=$$1
+			//					 |fi
+			//					 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + match_re} --target-dir ${table_target + match_re} $overwrite_para --query \"select * from $table_src where substr(spr_create_date,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" --hive-drop-import-delims -m 1
+			//					 |""".stripMargin
 				s"""#!/bin/bash
 					 |export JAVA_HOME="/usr/local/jdk1.7.0"
 					 |#${table_target.toUpperCase + match_re.toUpperCase}
 					 |#import ${table_target + match_re}
-					 |s_date=$$(date -d \'-7 days\' +%Y-%m-%d)
+					 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 					 |if [ $$# -eq 1 ]; then
 					 |	s_date=$$1
 					 |fi
-					 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + match_re} --target-dir ${table_target + match_re} $overwrite_para --query \"select * from $table_src where substr(spr_create_date,1,10)>=\'$${s_date}\' and \\$$CONDITIONS\" -m 1
+					 |sqoop import --connect $url_source --username $user_source --password $password_source --hive-import --hive-database $database_target --hive-table ${table_target + match_re} --target-dir ${table_target + match_re + "_" + match_city} $overwrite_para --query \"select * from $table_src where \\$$CONDITIONS\" --hive-drop-import-delims -m 1
 					 |""".stripMargin
 			val path_cream = path.split("/").dropRight(1).mkString("/") + "/incream"
 			withWriter(path_cream)(fileName + ".sh")(command_lines)
@@ -283,7 +301,7 @@ object ShellFile extends WriteToFile {
 		val today = dateFormat.format(now)
 		val command_lines: String =
 			s"""#!/bin/bash
-				 |hadoop fs -touchz /tmp/azkaban_event/$schemeName$$(date+"%Y%m%d").event
+				 |hadoop fs -touchz /tmp/azkaban_event/$schemeName$$(date +"%Y%m%d").event
 				 |""".stripMargin
 		val path_event = path.split("/").dropRight(1).mkString("/") + "/gen_event"
 		withWriter(path_event)(fileName + ".sh")(command_lines)
