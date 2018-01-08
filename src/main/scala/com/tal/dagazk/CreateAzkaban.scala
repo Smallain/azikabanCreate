@@ -9,8 +9,8 @@ object CreateAzkaban extends App with LoadAdjacencyList with WriteToFile {
 	
 	
 	
-	val mp = DAG.analysisFile("./src/test/resources/SQOOP_ODS_PLAN.txt")
-	val db_info = DAG.analysisFile("./src/test/resources/SQOOP_ODS_PLAN_DB.txt").filter(k => k._2 != Nil)
+	val mp = DAG.analysisFile("./src/test/resources/SQOOP_ODS_SS.txt")
+	val db_info = DAG.analysisFile("./src/test/resources/SQOOP_ODS_SS_DB.txt").filter(k => k._2 != Nil)
 	val listSort = DAG.topology(mp).filter(_ != "")
 	
 	
@@ -21,7 +21,7 @@ object CreateAzkaban extends App with LoadAdjacencyList with WriteToFile {
 	var command_lines = ""
 	for (i <- listSort) {
 		val deps = mp(i).mkString(",")
-		JobFile.jobFileMaker("./src/test/resources/SQOOP_ODS_PLAN/azkaban", i, deps)
+		JobFile.jobFileMaker("./src/test/resources/SQOOP_ODS_SS/azkaban", i, deps)
 		var tmp_s = s"输出队列是：$i								依赖是：$deps\n"
 		command_lines += tmp_s
 		withWriter("./src/test/resources/")("dag_squeue.txt")(command_lines)
@@ -32,7 +32,7 @@ object CreateAzkaban extends App with LoadAdjacencyList with WriteToFile {
 		*/
 	
 	for (i <- listSort) {
-		ShellFile.shellFileMaker("./src/test/resources/SQOOP_ODS_PLAN/sqoop", i, db_info)
+		ShellFile.shellFileMaker("./src/test/resources/SQOOP_ODS_SS/sqoop", i, db_info)
 	}
 	
 	/**
@@ -40,6 +40,6 @@ object CreateAzkaban extends App with LoadAdjacencyList with WriteToFile {
 		*/
 	
 	for (i <- listSort) {
-		HqlFile.hqlFileMaker("./src/test/resources/SQOOP_ODS_PLAN/etl", i)
+		HqlFile.hqlFileMaker("./src/test/resources/SQOOP_ODS_SS/etl", i)
 	}
 }
