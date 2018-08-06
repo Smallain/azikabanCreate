@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_COURSE_TASK_QUESTION
-type=command
-dependencies=SQOOP_ODS_IPS_TB_STUDENT_OPUS
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_COURSE_TASK_QUESTION.sh"
-user.to.proxy=hdfs

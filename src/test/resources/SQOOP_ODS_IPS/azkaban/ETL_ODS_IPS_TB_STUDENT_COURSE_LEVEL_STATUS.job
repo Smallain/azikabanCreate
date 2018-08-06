@@ -1,5 +1,0 @@
-#ETL_ODS_IPS_TB_STUDENT_COURSE_LEVEL_STATUS
-type=command
-dependencies=SQOOP_S_IPS_TB_STUDENT_COURSE_LEVEL_STATUS
-command=/bin/bash ../etl/ETL_ODS_IPS_TB_STUDENT_COURSE_LEVEL_STATUS.hql
-user.to.proxy=hdfs

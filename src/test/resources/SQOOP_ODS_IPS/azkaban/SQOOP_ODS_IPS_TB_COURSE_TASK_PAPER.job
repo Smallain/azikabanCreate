@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_COURSE_TASK_PAPER
-type=command
-dependencies=SQOOP_ODS_IPS_TB_COURSE_TASK
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_COURSE_TASK_PAPER.sh"
-user.to.proxy=hdfs

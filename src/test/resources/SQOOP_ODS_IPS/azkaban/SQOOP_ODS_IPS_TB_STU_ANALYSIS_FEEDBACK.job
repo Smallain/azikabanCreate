@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_STU_ANALYSIS_FEEDBACK
-type=command
-dependencies=SQOOP_ODS_IPS_START
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_STU_ANALYSIS_FEEDBACK.sh"
-user.to.proxy=hdfs

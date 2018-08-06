@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_INTERACTION_ANSWER
-type=command
-dependencies=SQOOP_ODS_IPS_TB_ICS_TEST_LOG
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_INTERACTION_ANSWER.sh"
-user.to.proxy=hdfs

@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_EVALUATE_STAR_TAGS
-type=command
-dependencies=SQOOP_ODS_IPS_TB_COURSE_LEVEL_PAPER
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_EVALUATE_STAR_TAGS.sh"
-user.to.proxy=hdfs

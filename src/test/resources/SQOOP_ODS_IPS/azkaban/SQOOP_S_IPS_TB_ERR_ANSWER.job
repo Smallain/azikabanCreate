@@ -1,5 +1,0 @@
-#SQOOP_S_IPS_TB_ERR_ANSWER
-type=command
-dependencies=ETL_ODS_IPS_TB_CHEST
-command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_ERR_ANSWER.sh"
-user.to.proxy=hdfs

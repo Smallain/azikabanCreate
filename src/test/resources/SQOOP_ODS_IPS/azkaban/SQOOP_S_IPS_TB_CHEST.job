@@ -1,5 +1,0 @@
-#SQOOP_S_IPS_TB_CHEST
-type=command
-dependencies=SQOOP_ODS_IPS_START
-command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_CHEST.sh"
-user.to.proxy=hdfs

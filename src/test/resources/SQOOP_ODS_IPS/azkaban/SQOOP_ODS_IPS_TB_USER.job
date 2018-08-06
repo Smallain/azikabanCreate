@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_USER
-type=command
-dependencies=SQOOP_ODS_IPS_TB_STU_ANALYSIS_FEEDBACK
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_USER.sh"
-user.to.proxy=hdfs

@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_END
-type=command
-dependencies=SQOOP_ODS_IPS_TB_STU_INCLASS_QUESTION,SQOOP_ODS_IPS_TB_ENV,ETL_ODS_IPS_TB_STU_ANSWER_CONTENT_DETAIL
-command=echo "sync data SQOOP_ODS_IPS_END end"
-user.to.proxy=hdfs

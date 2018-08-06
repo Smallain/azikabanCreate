@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_KNOWLEGE
-type=command
-dependencies=SQOOP_ODS_IPS_TB_INTERACT_SUBJ_ANSWER_DETAIL
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_KNOWLEGE.sh"
-user.to.proxy=hdfs

@@ -8,7 +8,7 @@ trait TopoSort {
 	
 	/**
 		*
-		* @param mapdepIn：临接表映射Map
+		* @param mapdepIn ：临接表映射Map
 		* @return 拓扑排序列表
 		*/
 	

@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_WF
-type=command
-dependencies=SQOOP_ODS_IPS_END
-command=/bin/bash ../gen_event/SQOOP_ODS_IPS_WF.sh
-user.to.proxy=hdfs

@@ -1,5 +1,0 @@
-#SQOOP_S_IPS_TB_EVALUATE_RESULT
-type=command
-dependencies=ETL_ODS_IPS_TB_ERR_ANSWER
-command=/bin/bash ../sqoop/SQOOP_S_IPS_TB_EVALUATE_RESULT.sh"
-user.to.proxy=hdfs

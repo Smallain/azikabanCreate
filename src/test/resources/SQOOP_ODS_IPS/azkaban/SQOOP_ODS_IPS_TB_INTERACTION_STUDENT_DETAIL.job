@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_INTERACTION_STUDENT_DETAIL
-type=command
-dependencies=SQOOP_ODS_IPS_TB_INTERACTION_OBJ_PHOTO_DETAIL
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_INTERACTION_STUDENT_DETAIL.sh"
-user.to.proxy=hdfs

@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_STUDENT_OPUS
-type=command
-dependencies=SQOOP_ODS_IPS_TB_COMMIT_TYPE
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_STUDENT_OPUS.sh"
-user.to.proxy=hdfs

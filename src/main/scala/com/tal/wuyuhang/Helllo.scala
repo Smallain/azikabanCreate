@@ -4,26 +4,17 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 object Helllo extends App {
+	var countMoney: Double = 0.0
+	var year:Int = 1
 	
-	println("hello, world")
-	val ss =
-		"""sssssss
-			|ssssssss
-			|sssss
-			|ssssssss
-		""".stripMargin
-	
-	def add(x: Int, y: Int): Int = x + y
-	
-	println(ss)
-	
-	val now:Date = new Date()
-	val dateF: SimpleDateFormat = new SimpleDateFormat("yyyyMMdd")
-	val hh = dateF.format(now)
-	
-	println(hh)
-	
-	val ssss = "SQOOP_ODS_IPS_WF".filter(_.toString!="WF")
-	val wd = "WF"
-	
+	def money(benjin: Double): Double = {
+		if (year<=60) {
+			countMoney = benjin + benjin * 0.0275
+			year+=1
+			money(countMoney)
+		}
+		countMoney
+	}
+	println(money(100000))
 }
+

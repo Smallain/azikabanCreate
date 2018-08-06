@@ -1,5 +1,0 @@
-#SQOOP_ODS_PTS_TB_STUDENT_POINTS_RECORD_0101
-type=command
-dependencies=SQOOP_ODS_PTS_START
-command=/bin/bash ../sqoop/SQOOP_ODS_PTS_TB_STUDENT_POINTS_RECORD_0101.sh"
-user.to.proxy=hdfs

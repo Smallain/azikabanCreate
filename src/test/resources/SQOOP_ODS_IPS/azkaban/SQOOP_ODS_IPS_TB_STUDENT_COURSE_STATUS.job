@@ -1,5 +1,0 @@
-#SQOOP_ODS_IPS_TB_STUDENT_COURSE_STATUS
-type=command
-dependencies=SQOOP_ODS_IPS_TB_SHUANGSHI_MSG_DETAIL
-command=/bin/bash ../sqoop/SQOOP_ODS_IPS_TB_STUDENT_COURSE_STATUS.sh"
-user.to.proxy=hdfs

@@ -15,7 +15,7 @@ object ShellFile extends WriteToFile {
 		* @param db_info  数据库链接信息
 		*/
 	
-	def shellFileMaker(path: Path, fileName: String, db_info: Map[String, List[String]]) {
+	def shellFileMaker(path: Path, fileName: String, db_info: Map[String, List[String]],projectName:String) {
 		
 		//解析数据库配置信息
 		
@@ -23,7 +23,13 @@ object ShellFile extends WriteToFile {
 		val url_source = db_info("url_source").mkString
 		val port_source = db_info("port_source").mkString
 		val user_source = db_info("user_source").mkString
-		val password_source = db_info("password_source").mkString
+		var password_source = db_info("password_source").mkString
+		
+		withWriter(path.dropRight(6)+"/password")("password.file")(password_source)
+		
+		
+		password_source = s"--password-file hdfs://turinghdfs:8020/user/hdfs/password/$projectName/password.file"
+		
 		val database_source = db_info("database_source").mkString
 		val table_source = db_info("table_source")
 		
@@ -103,7 +109,7 @@ object ShellFile extends WriteToFile {
 		
 		//val pattens = "tb_student_points_record_[0-9]"
 		
-		val tab_re = "plan_stu_score_[0-9]"
+		val tab_re = "student_honor_[0-9]"
 		val tab_red = "tb_student_points_record_detail_[0-9]"
 		val pattern_re = new Regex(tab_re)
 		val pattern_red = new Regex(tab_red)
@@ -135,13 +141,19 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + table_src.toUpperCase}
 						 |#import ${table_target + table_src}
-						 |sqoop import --connect $url_source --username $user_source --password $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + table_src} --hive-overwrite --hive-drop-import-delims -m 1
+						 |hdfs dfs -test -e /user/hdfs/$table_src
+						 |if [ $$? -eq 0 ] ;then
+						 |	echo 'Directory is already exist.Delete Directory'
+						 | 	hdfs dfs -rm -r /user/hdfs/$table_src
+						 |else
+						 |	echo 'Directory is not exist.Can be started.'
+						 |fi
+						 |sqoop import --connect $url_source --username $user_source  $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + table_src} --hive-overwrite --hive-drop-import-delims -m 1
 						 |""".stripMargin
-				
 				withWriter(path)(fileName + ".sh")(command_lines)
 			} else {
 				//如果像tb_student_points_record_detail_010这样的表的话，将目标表 同为合并为表tb_student_points_record_detail
-				var overwrite_para = ""
+				var overwrite_para = "--hive-overwrite"
 				if (match_city.equals("010")) {
 					overwrite_para = "--hive-overwrite"
 				}
@@ -150,14 +162,21 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + match_red.toUpperCase}
 						 |#import ${table_target + match_red}
-						 |sqoop import --connect $url_source --username $user_source --password $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + match_red} $overwrite_para --hive-drop-import-delims -m 1
+						 |hdfs dfs -test -e /user/hdfs/$table_src
+						 |if [ $$? -eq 0 ] ;then
+						 |	echo 'Directory is already exist.Delete Directory'
+						 | 	hdfs dfs -rm -r /user/hdfs/$table_src
+						 |else
+						 |	echo 'Directory is not exist.Can be started.'
+						 |fi
+						 |sqoop import --connect $url_source --username $user_source  $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + match_red} $overwrite_para --hive-drop-import-delims -m 1
 						 |""".stripMargin
 				
 				withWriter(path)(fileName + ".sh")(command_lines)
 			}
 		} else {
 			//如果像tb_student_points_record_010这样的表的话，将目标表 同为合并为表tb_student_points_record
-			var overwrite_para = ""
+			var overwrite_para = "--hive-overwrite"
 			if (match_city.equals("010")) {
 				overwrite_para = "--hive-overwrite"
 			}
@@ -166,7 +185,14 @@ object ShellFile extends WriteToFile {
 					 |export JAVA_HOME="/usr/local/jdk1.7.0"
 					 |#${table_target.toUpperCase + match_re.toUpperCase}
 					 |#import ${table_target + match_re}
-					 |sqoop import --connect $url_source --username $user_source --password $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + match_re} $overwrite_para $partition_para --hive-drop-import-delims -m 1
+					 |hdfs dfs -test -e /user/hdfs/$table_src
+					 |if [ $$? -eq 0 ] ;then
+					 |	echo 'Directory is already exist.Delete Directory'
+					 | 	hdfs dfs -rm -r /user/hdfs/$table_src
+					 |else
+					 |	echo 'Directory is not exist.Can be started.'
+					 |fi
+					 |sqoop import --connect $url_source --username $user_source  $password_source --table $table_src --hive-import --hive-database $database_target --hive-table ${table_target + match_re} $overwrite_para $partition_para --hive-drop-import-delims -m 1
 					 |""".stripMargin
 			
 			withWriter(path)(fileName + ".sh")(command_lines)
@@ -227,6 +253,13 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + table_src.toUpperCase}
 						 |#import ${table_target + table_src}
+						 |hdfs dfs -test -e /user/hdfs/${table_target + table_src}
+						 |if [ $$? -eq 0 ] ;then
+						 |	echo 'Directory is already exist.Delete Directory'
+						 | 	hdfs dfs -rm -r /user/hdfs/${table_target + table_src}
+						 |else
+						 |	echo 'Directory is not exist.Can be started.'
+						 |fi
 						 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 						 |if [ $$# -eq 1 ]; then
 						 |	s_date=$$1
@@ -246,6 +279,13 @@ object ShellFile extends WriteToFile {
 						 |export JAVA_HOME="/usr/local/jdk1.7.0"
 						 |#${table_target.toUpperCase + match_red.toUpperCase}
 						 |#import ${table_target + match_red}
+						 |hdfs dfs -test -e /user/hdfs/${table_target + match_red}
+						 |if [ $$? -eq 0 ] ;then
+						 |	echo 'Directory is already exist.Delete Directory'
+						 | 	hdfs dfs -rm -r /user/hdfs/${table_target + match_red}
+						 |else
+						 |	echo 'Directory is not exist.Can be started.'
+						 |fi
 						 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 						 |if [ $$# -eq 1 ]; then
 						 |	s_date=$$1
@@ -276,6 +316,13 @@ object ShellFile extends WriteToFile {
 					 |export JAVA_HOME="/usr/local/jdk1.7.0"
 					 |#${table_target.toUpperCase + match_re.toUpperCase}
 					 |#import ${table_target + match_re}
+					 |hdfs dfs -test -e /user/hdfs/${table_target + match_re + "_" + match_city}
+					 |if [ $$? -eq 0 ] ;then
+					 |	echo 'Directory is already exist.Delete Directory'
+					 | 	hdfs dfs -rm -r /user/hdfs/${table_target + match_re + "_" + match_city}
+					 |else
+					 |	echo 'Directory is not exist.Can be started.'
+					 |fi
 					 |s_date=$$(date -d \'-1 days\' +%Y-%m-%d)
 					 |if [ $$# -eq 1 ]; then
 					 |	s_date=$$1
